@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WahyuGithub2</string>
+    <string name="search">Search</string>
+    <string name="no_data_found">No Data Found.</string>
+    <string name="no_company">No Company Set</string>
+    <string name="anon">Anonymous</string>
+    <string name="no_username">No Username</string>
+    <string name="no_location">No Location Set</string>
+    <string name="detail">Detail</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="followerTemplate">followers : %d</string>
+    <string name="followingTemplate">following : %d</string>
+    <string name="appbarDetail">User Detail %s</string>
+</resources>
