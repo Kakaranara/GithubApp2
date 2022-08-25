@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wahyugithub2.viewmodel.FollowViewModel
-import com.example.wahyugithub2.adapter.FollowListAdapter
+import com.example.wahyugithub2.datacenter.viewmodel.FollowViewModel
+import com.example.wahyugithub2.ui.adapter.FollowListAdapter
 import com.example.wahyugithub2.databinding.FragmentFollowerBinding
 
 class FollowerFragment : Fragment() {

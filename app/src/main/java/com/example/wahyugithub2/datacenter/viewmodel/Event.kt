@@ -1,4 +1,4 @@
-package com.example.wahyugithub2.viewmodel
+package com.example.wahyugithub2.datacenter.viewmodel
 
 open class Event<out T>(private val content: T) {
 

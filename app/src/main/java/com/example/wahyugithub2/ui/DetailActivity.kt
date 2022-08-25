@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.wahyugithub2.R
-import com.example.wahyugithub2.adapter.ViewPagerAdapter
+import com.example.wahyugithub2.ui.adapter.ViewPagerAdapter
 import com.example.wahyugithub2.databinding.ActivityDetailBinding
-import com.example.wahyugithub2.pojo.DetailUserResponse
+import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailActivity : AppCompatActivity() {

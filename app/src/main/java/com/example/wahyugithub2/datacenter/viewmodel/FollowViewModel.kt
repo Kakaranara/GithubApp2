@@ -1,10 +1,10 @@
-package com.example.wahyugithub2.viewmodel
+package com.example.wahyugithub2.datacenter.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.wahyugithub2.datacenter.ApiConfig
-import com.example.wahyugithub2.pojo.FollowResponseItem
+import com.example.wahyugithub2.datacenter.pojo.FollowResponseItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

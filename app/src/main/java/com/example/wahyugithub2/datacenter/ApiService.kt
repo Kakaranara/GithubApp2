@@ -1,9 +1,9 @@
 package com.example.wahyugithub2.datacenter
 
-import com.example.wahyugithub2.pojo.DetailUserResponse
-import com.example.wahyugithub2.pojo.FollowResponse
-import com.example.wahyugithub2.pojo.FollowResponseItem
-import com.example.wahyugithub2.pojo.SearchResponse
+import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
+import com.example.wahyugithub2.datacenter.pojo.FollowResponse
+import com.example.wahyugithub2.datacenter.pojo.FollowResponseItem
+import com.example.wahyugithub2.datacenter.pojo.SearchResponse
 import retrofit2.Call
 import retrofit2.http.*
 

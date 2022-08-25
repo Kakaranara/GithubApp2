@@ -1,4 +1,4 @@
-package com.example.wahyugithub2.adapter
+package com.example.wahyugithub2.ui.adapter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

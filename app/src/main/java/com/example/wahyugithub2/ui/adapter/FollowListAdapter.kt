@@ -1,11 +1,11 @@
-package com.example.wahyugithub2.adapter
+package com.example.wahyugithub2.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.wahyugithub2.databinding.ListFollowBinding
-import com.example.wahyugithub2.pojo.FollowResponseItem
+import com.example.wahyugithub2.datacenter.pojo.FollowResponseItem
 
 class FollowListAdapter(private val list: List<FollowResponseItem>) :
     RecyclerView.Adapter<FollowListAdapter.ViewHolder>() {

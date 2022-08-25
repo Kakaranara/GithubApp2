@@ -1,14 +1,20 @@
-package com.example.wahyugithub2.pojo
+package com.example.wahyugithub2.datacenter.pojo
 
 import com.google.gson.annotations.SerializedName
 
-data class FollowResponse(
+data class SearchResponse(
 
-	@field:SerializedName("FollowerResponse")
-	val followResponse: List<FollowResponseItem>
+	@field:SerializedName("total_count")
+	val totalCount: Int,
+
+	@field:SerializedName("incomplete_results")
+	val incompleteResults: Boolean,
+
+	@field:SerializedName("items")
+	val items: List<ItemsItem>
 )
 
-data class FollowResponseItem(
+data class ItemsItem(
 
 	@field:SerializedName("gists_url")
 	val gistsUrl: String,
@@ -36,6 +42,9 @@ data class FollowResponseItem(
 
 	@field:SerializedName("subscriptions_url")
 	val subscriptionsUrl: String,
+
+	@field:SerializedName("score")
+	val score: Double,
 
 	@field:SerializedName("received_events_url")
 	val receivedEventsUrl: String,

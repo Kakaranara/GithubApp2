@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wahyugithub2.adapter.SearchListAdapter
-import com.example.wahyugithub2.viewmodel.SearchViewModel
+import com.example.wahyugithub2.ui.adapter.SearchListAdapter
+import com.example.wahyugithub2.datacenter.viewmodel.SearchViewModel
 import com.example.wahyugithub2.databinding.ActivityMainBinding
-import com.example.wahyugithub2.pojo.DetailUserResponse
+import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 
 class MainActivity : AppCompatActivity() {
 

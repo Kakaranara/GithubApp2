@@ -1,4 +1,4 @@
-package com.example.wahyugithub2.pojo
+package com.example.wahyugithub2.datacenter.pojo
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
