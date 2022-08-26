@@ -10,6 +10,7 @@ import com.example.wahyugithub2.ui.adapter.SearchListAdapter
 import com.example.wahyugithub2.datacenter.viewmodel.SearchViewModel
 import com.example.wahyugithub2.databinding.ActivityMainBinding
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
+import com.example.wahyugithub2.showLoading
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,11 +24,10 @@ class MainActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
         viewModel.isLoading.observe(this) {
-            showLoading(it)
+            binding.progressBar.showLoading(it)
         }
 
         viewModel.isEmpty.observe(this){
-            //saya tidak mengerti mengapa live data ini tidak dapat mempertahankan state..
             showEmpty(it)
         }
 
@@ -46,13 +46,6 @@ class MainActivity : AppCompatActivity() {
         val decor = DividerItemDecoration(this, manager.orientation)
         binding.rvSearch.addItemDecoration(decor)
 
-    }
-
-    private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = when (isLoading) {
-            true -> View.VISIBLE
-            false -> View.INVISIBLE
-        }
     }
 
     private fun showEmpty(isEmpty: Boolean) {

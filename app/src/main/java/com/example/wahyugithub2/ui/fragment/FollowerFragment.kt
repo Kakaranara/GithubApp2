@@ -1,6 +1,5 @@
-package com.example.wahyugithub2.ui
+package com.example.wahyugithub2.ui.fragment
 
-import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

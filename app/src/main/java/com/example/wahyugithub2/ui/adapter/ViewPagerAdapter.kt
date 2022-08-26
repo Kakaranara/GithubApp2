@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.wahyugithub2.ui.FollowerFragment
-import com.example.wahyugithub2.ui.FollowingFragment
+import com.example.wahyugithub2.ui.fragment.FollowerFragment
+import com.example.wahyugithub2.ui.fragment.FollowingFragment
 
 class ViewPagerAdapter(activity : AppCompatActivity,private val bundle: Bundle) : FragmentStateAdapter(activity) {
     override fun getItemCount(): Int = 2
