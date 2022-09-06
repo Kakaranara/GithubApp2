@@ -22,6 +22,10 @@ class SearchViewModel : ViewModel() {
     private val _listUserDetail = MutableLiveData<List<DetailUserResponse>>()
     val listUserDetail: LiveData<List<DetailUserResponse>> = _listUserDetail
 
+    init{
+        searchUser("sidiq")
+    }
+
     fun searchUser(name: String) {
         _isLoading.value = true
         val client = ApiConfig.getApiService().getSearchData(name)
