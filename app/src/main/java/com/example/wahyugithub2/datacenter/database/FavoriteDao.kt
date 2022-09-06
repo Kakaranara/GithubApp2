@@ -5,7 +5,5 @@ import androidx.room.*
 
 @Dao
 interface FavoriteDao {
-    @Insert
-    fun insert()
 
 }

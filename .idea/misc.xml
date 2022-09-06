@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/drawable/ic_baseline_settings_black.xml" value="0.2075" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/activity_detail.xml" value="0.22" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/fragment_follower.xml" value="0.19" />
@@ -11,6 +12,7 @@
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/list_item.xml" value="0.5" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/searchable.xml" value="0.1" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/testml.xml" value="0.529351184346035" />
+        <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/menu/menu.xml" value="0.19895833333333332" />
       </map>
     </option>
   </component>

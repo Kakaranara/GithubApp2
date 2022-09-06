@@ -2,12 +2,14 @@ package com.example.wahyugithub2.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.wahyugithub2.R
 import com.example.wahyugithub2.ui.adapter.SearchListAdapter
 import com.example.wahyugithub2.datacenter.viewmodel.SearchViewModel
 import com.example.wahyugithub2.databinding.ActivityMainBinding
@@ -59,6 +61,14 @@ class MainActivity : AppCompatActivity() {
         binding.rvSearch.addItemDecoration(decor)
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+
 
     private fun showEmpty(isEmpty: Boolean) {
         binding.noDataFound.visibility = when (isEmpty) {
