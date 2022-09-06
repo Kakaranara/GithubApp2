@@ -118,6 +118,7 @@
         android:layout_gravity="end|bottom"
         android:src="@drawable/ic_baseline_favorite_border_black"
         android:contentDescription="@string/appbarDetail"
+        style="?attr/floatingActionButtonLargePrimaryStyle"
         />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
