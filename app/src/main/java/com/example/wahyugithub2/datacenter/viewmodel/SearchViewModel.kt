@@ -77,7 +77,7 @@ class SearchViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<DetailUserResponse>, t: Throwable) {
-
+                    _isLoading.value = false
                 }
             })
         }
