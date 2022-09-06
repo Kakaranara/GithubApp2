@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wahyugithub2.datacenter.viewmodel.FollowViewModel
 import com.example.wahyugithub2.ui.adapter.FollowListAdapter
 import com.example.wahyugithub2.databinding.FragmentFollowerBinding
+import com.example.wahyugithub2.showLoading
 
 class FollowerFragment : Fragment() {
 
@@ -38,18 +39,11 @@ class FollowerFragment : Fragment() {
         }
 
         viewModel.isFollowerLoading.observe(requireActivity()){
-            showLoading(it)
+            binding.progressBar2.showLoading(it)
         }
 
         val layoutManager = LinearLayoutManager(requireActivity())
         binding.rvFollower.layoutManager = layoutManager
-    }
-
-    fun showLoading(isLoading : Boolean){
-        binding.progressBar2.visibility = when(isLoading){
-            true -> View.VISIBLE
-            false -> View.INVISIBLE
-        }
     }
 
     override fun onDestroy() {
