@@ -13,7 +13,11 @@ import com.example.wahyugithub2.ui.DetailActivity
 class SearchListAdapter(private val list: List<DetailUserResponse>) :
     RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {
 
-    class ViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root)
+    private lateinit var listener : OnItemCallbackListener
+
+    fun setOnItemCallbackListener(listener : OnItemCallbackListener){
+        this.listener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ListItemBinding
@@ -30,10 +34,7 @@ class SearchListAdapter(private val list: List<DetailUserResponse>) :
                 tvUsername.text = data.login ?: res.getString(R.string.no_username)
                 tvLocation.text = data.location ?: res.getString(R.string.no_location)
                 btnDetail.setOnClickListener {
-                    Intent(it.context, DetailActivity::class.java).also { intent ->
-                        intent.putExtra(DetailActivity.EXTRAS, data)
-                        holder.itemView.context.startActivity(intent)
-                    }
+                    listener.setOnItemCallbackListener(data)
                 }
             }
         }
@@ -44,5 +45,11 @@ class SearchListAdapter(private val list: List<DetailUserResponse>) :
     }
 
     override fun getItemCount() = list.size
+
+    class ViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root)
+
+    interface OnItemCallbackListener{
+        fun setOnItemCallbackListener(data : DetailUserResponse)
+    }
 
 }

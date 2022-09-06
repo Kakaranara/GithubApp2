@@ -1,7 +1,9 @@
 package com.example.wahyugithub2.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -32,7 +34,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.listUserDetail.observe(this) {
-            binding.rvSearch.adapter = SearchListAdapter(it)
+            val adapter = SearchListAdapter(it)
+            binding.rvSearch.adapter = adapter
+
+            adapter.setOnItemCallbackListener(object : SearchListAdapter.OnItemCallbackListener{
+                override fun setOnItemCallbackListener(data: DetailUserResponse) {
+                    Intent(this@MainActivity, DetailActivity::class.java).also { intent ->
+                        intent.putExtra(DetailActivity.EXTRAS, data)
+                        startActivity(intent)
+                    }
+                }
+            })
         }
 
         val edit = binding.textInputLayout.editText
