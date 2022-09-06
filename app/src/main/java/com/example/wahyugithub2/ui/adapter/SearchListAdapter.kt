@@ -1,6 +1,5 @@
 package com.example.wahyugithub2.ui.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.example.wahyugithub2.R
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 import com.example.wahyugithub2.databinding.ListItemBinding
-import com.example.wahyugithub2.ui.DetailActivity
 
 class SearchListAdapter(private val list: List<DetailUserResponse>) :
     RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {

@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.DetailActivity">
+        tools:context=".ui.activity.DetailActivity">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/photoDetail"
