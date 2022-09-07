@@ -9,11 +9,14 @@ import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 interface FavoriteDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(favorite: Favorite)
+    fun insert(favorite: DetailUserResponse)
 
     @Delete
-    fun delete(favorite: Favorite)
+    fun delete(favorite: DetailUserResponse)
 
-    @Query("SELECT * FROM favorite ORDER BY id ASC")
-    fun getAllData() : LiveData<List<Favorite>>
+    @Query("SELECT * FROM detailuserresponse WHERE id = :ids")
+    fun getExactData(ids : Int) : LiveData<DetailUserResponse>
+
+    @Query("SELECT * FROM detailuserresponse ORDER BY id ASC")
+    fun getAllData() : LiveData<List<DetailUserResponse>>
 }

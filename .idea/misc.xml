@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/drawable/ic_baseline_favorite_black.xml" value="0.1925" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/drawable/ic_baseline_favorite_border_black.xml" value="0.1925" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/drawable/ic_baseline_settings_black.xml" value="0.2075" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1925" />
-        <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/activity_detail.xml" value="0.21" />
+        <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/activity_detail.xml" value="0.43636363636363634" />
+        <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/activity_favorite.xml" value="0.25" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/activity_settings.xml" value="0.5" />
         <entry key="..\:/Users/wahyu/RootProject/Learning/Android/Dicoding/WahyuGithub2/app/src/main/res/layout/fragment_follower.xml" value="0.19" />

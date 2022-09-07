@@ -72,6 +72,11 @@ class MainActivity : AppCompatActivity() {
                     startActivity(it)
                 }
             }
+            R.id.action_favorite -> {
+                Intent(this, FavoriteActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
         }
 
         return true

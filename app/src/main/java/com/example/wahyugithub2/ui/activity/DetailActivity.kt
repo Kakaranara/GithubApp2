@@ -2,22 +2,35 @@ package com.example.wahyugithub2.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.wahyugithub2.R
 import com.example.wahyugithub2.ui.adapter.ViewPagerAdapter
 import com.example.wahyugithub2.databinding.ActivityDetailBinding
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
+import com.example.wahyugithub2.datacenter.repository.FavoriteVmFactory
+import com.example.wahyugithub2.datacenter.viewmodel.FavoriteViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var dbViewModel: FavoriteViewModel
+    private lateinit var obj : DetailUserResponse
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val obj = intent.getParcelableExtra<DetailUserResponse>(EXTRAS) as DetailUserResponse
+        dbViewModel = ViewModelProvider(
+            this,
+            FavoriteVmFactory(application)
+        ).get(FavoriteViewModel::class.java)
+
+        obj = intent.getParcelableExtra<DetailUserResponse>(EXTRAS) as DetailUserResponse
         supportActionBar?.title = resources.getString(R.string.appbarDetail, obj.login)
 
         val bundle = Bundle()
@@ -30,6 +43,23 @@ class DetailActivity : AppCompatActivity() {
                 1 -> tab.text = "Following"
             }
         }.attach()
+
+//      id pasti tidak akan null
+        dbViewModel.getExactData(obj.id!!).observe(this){
+            val fab = binding.fab
+            if(it == null){
+                fab.setImageResource(R.drawable.ic_baseline_favorite_border_black)
+                binding.fab.setOnClickListener {
+                    dbViewModel.insertData(obj)
+                }
+            }
+            else{
+                binding.fab.setImageResource(R.drawable.ic_baseline_favorite_black)
+                binding.fab.setOnClickListener{
+                    dbViewModel.deleteData(obj)
+                }
+            }
+        }
 
         with(binding) {
             tvCompany.text = obj.company ?: resources.getString(R.string.no_company)
