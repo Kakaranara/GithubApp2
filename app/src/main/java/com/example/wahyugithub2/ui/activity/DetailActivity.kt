@@ -15,6 +15,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val obj = intent.getParcelableExtra<DetailUserResponse>(EXTRAS) as DetailUserResponse
         supportActionBar?.title = resources.getString(R.string.appbarDetail, obj.login)
