@@ -113,7 +113,6 @@
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        style="?attr/floatingActionButtonTertiaryStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -123,3 +122,5 @@
         android:src="@drawable/ic_baseline_favorite_border_black" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+<!-- test -->
