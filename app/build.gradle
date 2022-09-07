@@ -65,7 +65,13 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.13.2'
 
+    //local data persistent
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    //background task
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2'
+
 }

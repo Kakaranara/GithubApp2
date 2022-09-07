@@ -1,11 +1,16 @@
 package com.example.wahyugithub2.ui.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +19,12 @@ import com.example.wahyugithub2.ui.adapter.SearchListAdapter
 import com.example.wahyugithub2.datacenter.viewmodel.SearchViewModel
 import com.example.wahyugithub2.databinding.ActivityMainBinding
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
+import com.example.wahyugithub2.settings.SettingPreferences
+import com.example.wahyugithub2.settings.SettingsViewModel
+import com.example.wahyugithub2.settings.VmPreferenceFactory
 import com.example.wahyugithub2.showLoading
+
+val Context.settings : DataStore<Preferences> by preferencesDataStore("settings")
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        checkSettings()
 
         viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
@@ -62,6 +73,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         return true
+    }
+
+    private fun checkSettings(){
+        val pref = SettingPreferences.getInstance(settings)
+        val viewModel = ViewModelProvider(this, VmPreferenceFactory(pref)).get(SettingsViewModel::class.java)
+
+        viewModel.getTheme().observe(this){
+            if(it) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
     }
 
     private fun observeRecyclerView(){
