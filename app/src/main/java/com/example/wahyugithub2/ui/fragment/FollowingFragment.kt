@@ -30,7 +30,7 @@ class FollowingFragment : Fragment() {
 
         val args = arguments?.getString("username")
 
-        val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory()).get(FollowViewModel::class.java)
+        val viewModel = ViewModelProvider(requireActivity()).get(FollowViewModel::class.java)
 
         if(savedInstanceState == null){
             viewModel.getFollowing(args!!)

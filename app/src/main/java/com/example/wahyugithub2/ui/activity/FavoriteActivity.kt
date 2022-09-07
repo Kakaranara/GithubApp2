@@ -14,16 +14,21 @@ import com.example.wahyugithub2.ui.adapter.SearchListAdapter
 
 class FavoriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFavoriteBinding
+    private lateinit var viewModel: FavoriteViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val viewModel = ViewModelProvider(
+        viewModel = ViewModelProvider(
             this,
             FavoriteVmFactory(application)
-        ).get(FavoriteViewModel::class.java)
+        )[FavoriteViewModel::class.java]
 
+        observeRecyclerView()
+    }
+
+    private fun observeRecyclerView(){
         viewModel.getFavoriteData().observe(this){
             val adapter = SearchListAdapter(it)
             binding.rvFavorite.adapter = adapter
@@ -43,6 +48,5 @@ class FavoriteActivity : AppCompatActivity() {
         binding.rvFavorite.layoutManager = manager
         val decor = DividerItemDecoration(this, manager.orientation)
         binding.rvFavorite.addItemDecoration(decor)
-
     }
 }

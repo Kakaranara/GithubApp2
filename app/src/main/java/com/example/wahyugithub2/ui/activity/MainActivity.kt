@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -30,7 +31,7 @@ import com.example.wahyugithub2.showLoading
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel : SearchViewModel
+    private lateinit var viewModel: SearchViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,11 +39,10 @@ class MainActivity : AppCompatActivity() {
         checkSettings()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         viewModel = ViewModelProvider(this)[SearchViewModel::class.java]
 
         viewModel.isLoading.observe(this) { binding.progressBar.showLoading(it) }
-        viewModel.isEmpty.observe(this){ showEmpty(it) }
+        viewModel.isEmpty.observe(this) { showEmpty(it) }
         observeRecyclerView()
 
         val edit = binding.textInputLayout.editText
@@ -51,10 +51,6 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
-        val manager = LinearLayoutManager(this)
-        binding.rvSearch.layoutManager = manager
-        val decor = DividerItemDecoration(this, manager.orientation)
-        binding.rvSearch.addItemDecoration(decor)
 
     }
 
@@ -66,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        when(item.itemId){
+        when (item.itemId) {
             R.id.action_setting -> {
                 Intent(this, SettingsActivity::class.java).also {
                     startActivity(it)
@@ -82,21 +78,22 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    private fun checkSettings(){
+    private fun checkSettings() {
         val pref = SettingPreferences.getInstance(settings)
-        val viewModel = ViewModelProvider(this, VmPreferenceFactory(pref)).get(SettingsViewModel::class.java)
+        val viewModel =
+            ViewModelProvider(this, VmPreferenceFactory(pref)).get(SettingsViewModel::class.java)
 
-        viewModel.getTheme().observe(this){
-            if(it) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        viewModel.getTheme().observe(this) {
+            if (it) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
     }
 
-    private fun observeRecyclerView(){
+    private fun observeRecyclerView() {
         viewModel.listUserDetail.observe(this) {
             val adapter = SearchListAdapter(it)
             binding.rvSearch.adapter = adapter
 
-            adapter.setOnItemCallbackListener(object : SearchListAdapter.OnItemCallbackListener{
+            adapter.setOnItemCallbackListener(object : SearchListAdapter.OnItemCallbackListener {
                 override fun setOnItemCallbackListener(data: DetailUserResponse) {
                     Intent(this@MainActivity, DetailActivity::class.java).also { intent ->
                         intent.putExtra(DetailActivity.EXTRAS, data)
@@ -105,6 +102,11 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
+
+        val manager = LinearLayoutManager(this)
+        binding.rvSearch.layoutManager = manager
+        val decor = DividerItemDecoration(this, manager.orientation)
+        binding.rvSearch.addItemDecoration(decor)
     }
 
     private fun showEmpty(isEmpty: Boolean) {

@@ -2,6 +2,7 @@ package com.example.wahyugithub2.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -33,6 +34,22 @@ class DetailActivity : AppCompatActivity() {
         obj = intent.getParcelableExtra<DetailUserResponse>(EXTRAS) as DetailUserResponse
         supportActionBar?.title = resources.getString(R.string.appbarDetail, obj.login)
 
+        setupViewPager()
+        observeFab()
+        setupView()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return true
+    }
+
+    private fun setupViewPager(){
         val bundle = Bundle()
         bundle.putString("username", obj.login)
 
@@ -44,7 +61,10 @@ class DetailActivity : AppCompatActivity() {
             }
         }.attach()
 
-//      id pasti tidak akan null
+    }
+
+    private fun observeFab(){
+        //      id pasti tidak akan null
         dbViewModel.getExactData(obj.id!!).observe(this){
             val fab = binding.fab
             if(it == null){
@@ -59,8 +79,11 @@ class DetailActivity : AppCompatActivity() {
                     dbViewModel.deleteData(obj)
                 }
             }
+            dbViewModel.getFavoriteData()
         }
+    }
 
+    private fun setupView(){
         with(binding) {
             tvCompany.text = obj.company ?: resources.getString(R.string.no_company)
             tvDetailLocation.text = obj.location ?: resources.getString(R.string.no_location)
