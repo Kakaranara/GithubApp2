@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.example.wahyugithub2.databinding.ActivitySettingsBinding
+import com.example.wahyugithub2.settings
 import com.example.wahyugithub2.settings.SettingPreferences
 import com.example.wahyugithub2.settings.SettingsViewModel
 import com.example.wahyugithub2.settings.VmPreferenceFactory

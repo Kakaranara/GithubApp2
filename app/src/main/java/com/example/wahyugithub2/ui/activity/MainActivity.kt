@@ -20,12 +20,12 @@ import com.example.wahyugithub2.ui.adapter.SearchListAdapter
 import com.example.wahyugithub2.datacenter.viewmodel.SearchViewModel
 import com.example.wahyugithub2.databinding.ActivityMainBinding
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
+import com.example.wahyugithub2.settings
 import com.example.wahyugithub2.settings.SettingPreferences
 import com.example.wahyugithub2.settings.SettingsViewModel
 import com.example.wahyugithub2.settings.VmPreferenceFactory
 import com.example.wahyugithub2.showLoading
 
-val Context.settings : DataStore<Preferences> by preferencesDataStore("settings")
 
 class MainActivity : AppCompatActivity() {
 
