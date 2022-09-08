@@ -6,13 +6,15 @@ import androidx.lifecycle.ViewModel
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 import com.example.wahyugithub2.datacenter.repository.FavoriteRepository
 
-class FavoriteViewModel(application: Application) : ViewModel() {
-
+class DetailViewModel(application: Application) : ViewModel() {
     val repo = FavoriteRepository(application)
 
-    fun getFavoriteData() : LiveData<List<DetailUserResponse>> = repo.getFavoriteData()
+    fun getExactData(id: Int): LiveData<DetailUserResponse> = repo.getExactData(id)
+    fun insertData(data: DetailUserResponse) {
+        repo.insert(data)
+    }
 
-    fun deleteData(data: DetailUserResponse){
+    fun deleteData(data: DetailUserResponse) {
         repo.delete(data)
     }
 }

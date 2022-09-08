@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.wahyugithub2.datacenter.database.FavoriteDao
 import com.example.wahyugithub2.datacenter.database.FavoriteRoomDatabase
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
+import com.example.wahyugithub2.datacenter.viewmodel.DetailViewModel
 import com.example.wahyugithub2.datacenter.viewmodel.FavoriteViewModel
 import java.util.concurrent.Executors
 
@@ -15,7 +16,7 @@ class FavoriteRepository(application : Application) {
     private var executor = Executors.newSingleThreadExecutor()
 
     init {
-        val db = FavoriteRoomDatabase.getDatabase(application.applicationContext)
+        val db = FavoriteRoomDatabase.getDatabase(application)
         favoriteDao = db.favoriteDao()
     }
 
@@ -41,6 +42,9 @@ class FavoriteVmFactory(private val application: Application) : ViewModelProvide
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(FavoriteViewModel::class.java)){
             return FavoriteViewModel(application) as T
+        }
+        if(modelClass.isAssignableFrom(DetailViewModel::class.java)){
+            return DetailViewModel(application) as T
         }
         return super.create(modelClass)
     }

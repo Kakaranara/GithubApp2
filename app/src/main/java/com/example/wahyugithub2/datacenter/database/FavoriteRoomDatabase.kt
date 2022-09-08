@@ -16,12 +16,14 @@ abstract class FavoriteRoomDatabase : RoomDatabase() {
 
         @JvmStatic
         fun getDatabase(context : Context) : FavoriteRoomDatabase {
-            return INSTANCE ?: synchronized(this){
+            return INSTANCE ?: synchronized(FavoriteRoomDatabase::class.java){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     FavoriteRoomDatabase::class.java,
                     "favoriteDb"
-                ).build()
+                ).build().also {
+                    INSTANCE = it
+                }
 
                 instance
             }

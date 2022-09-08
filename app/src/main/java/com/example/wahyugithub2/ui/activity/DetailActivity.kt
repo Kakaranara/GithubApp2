@@ -12,13 +12,14 @@ import com.example.wahyugithub2.ui.adapter.ViewPagerAdapter
 import com.example.wahyugithub2.databinding.ActivityDetailBinding
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 import com.example.wahyugithub2.datacenter.repository.FavoriteVmFactory
+import com.example.wahyugithub2.datacenter.viewmodel.DetailViewModel
 import com.example.wahyugithub2.datacenter.viewmodel.FavoriteViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
-    private lateinit var dbViewModel: FavoriteViewModel
-    private lateinit var obj : DetailUserResponse
+    private lateinit var dbViewModel: DetailViewModel
+    private lateinit var obj: DetailUserResponse
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,7 @@ class DetailActivity : AppCompatActivity() {
         dbViewModel = ViewModelProvider(
             this,
             FavoriteVmFactory.getInstance(application)
-        ).get(FavoriteViewModel::class.java)
+        )[DetailViewModel::class.java]
 
         obj = intent.getParcelableExtra<DetailUserResponse>(EXTRAS) as DetailUserResponse
         supportActionBar?.title = resources.getString(R.string.appbarDetail, obj.login)
@@ -40,7 +41,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             android.R.id.home -> {
                 finish()
                 return true
@@ -49,7 +50,7 @@ class DetailActivity : AppCompatActivity() {
         return true
     }
 
-    private fun setupViewPager(){
+    private fun setupViewPager() {
         val bundle = Bundle()
         bundle.putString("username", obj.login)
 
@@ -63,28 +64,26 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    private fun observeFab(){
+    private fun observeFab() {
         //      id pasti tidak akan null
-        dbViewModel.getExactData(obj.id!!).observe(this){
+        dbViewModel.getExactData(obj.id!!).observe(this) {
             val fab = binding.fab
-            if(it == null){
+            if (it == null) {
                 fab.setImageResource(R.drawable.ic_baseline_favorite_border_black)
                 binding.fab.setOnClickListener {
                     dbViewModel.insertData(obj)
                 }
-            }
-            else{
+            } else {
                 binding.fab.setImageResource(R.drawable.ic_baseline_favorite_black)
-                binding.fab.setOnClickListener{
+                binding.fab.setOnClickListener {
                     dbViewModel.deleteData(obj)
                     finish()
                 }
             }
-            dbViewModel.getFavoriteData()
         }
     }
 
-    private fun setupView(){
+    private fun setupView() {
         with(binding) {
             tvCompany.text = obj.company ?: resources.getString(R.string.no_company)
             tvDetailLocation.text = obj.location ?: resources.getString(R.string.no_location)
