@@ -1,9 +1,9 @@
 package com.example.wahyugithub2.ui.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +12,6 @@ import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 import com.example.wahyugithub2.datacenter.repository.FavoriteVmFactory
 import com.example.wahyugithub2.datacenter.viewmodel.FavoriteViewModel
 import com.example.wahyugithub2.ui.adapter.FavoriteListAdapter
-import com.example.wahyugithub2.ui.adapter.SearchListAdapter
 
 class FavoriteActivity : AppCompatActivity() {
 

@@ -1,9 +1,9 @@
 package com.example.wahyugithub2.datacenter.database
 
 import android.content.Context
-import androidx.room.DatabaseConfiguration
-import androidx.room.InvalidationTracker
-import androidx.room.*
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 
 @Database(entities = [DetailUserResponse::class], version = 1)

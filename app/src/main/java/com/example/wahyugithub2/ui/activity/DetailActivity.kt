@@ -3,8 +3,6 @@ package com.example.wahyugithub2.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.wahyugithub2.R
@@ -13,7 +11,6 @@ import com.example.wahyugithub2.databinding.ActivityDetailBinding
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 import com.example.wahyugithub2.datacenter.repository.FavoriteVmFactory
 import com.example.wahyugithub2.datacenter.viewmodel.DetailViewModel
-import com.example.wahyugithub2.datacenter.viewmodel.FavoriteViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailActivity : AppCompatActivity() {
@@ -77,7 +74,6 @@ class DetailActivity : AppCompatActivity() {
                 binding.fab.setImageResource(R.drawable.ic_baseline_favorite_black)
                 binding.fab.setOnClickListener {
                     dbViewModel.deleteData(obj)
-                    finish()
                 }
             }
         }

@@ -8,7 +8,7 @@ import com.example.wahyugithub2.datacenter.repository.FavoriteRepository
 
 class FavoriteViewModel(application: Application) : ViewModel() {
 
-    val repo = FavoriteRepository(application)
+    private val repo = FavoriteRepository(application)
 
     fun getFavoriteData() : LiveData<List<DetailUserResponse>> = repo.getFavoriteData()
 

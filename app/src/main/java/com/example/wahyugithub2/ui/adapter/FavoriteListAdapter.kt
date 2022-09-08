@@ -10,7 +10,7 @@ import com.example.wahyugithub2.databinding.ListFavoriteBinding
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 import com.example.wahyugithub2.helper.FavDiffCallback
 
-class FavoriteListAdapter() : RecyclerView.Adapter<FavoriteListAdapter.ViewHolder>() {
+class FavoriteListAdapter : RecyclerView.Adapter<FavoriteListAdapter.ViewHolder>() {
 
     private lateinit var listener : OnItemCallback
     val list =  ArrayList<DetailUserResponse>()

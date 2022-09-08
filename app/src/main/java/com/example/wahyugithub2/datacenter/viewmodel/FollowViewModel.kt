@@ -23,10 +23,8 @@ class FollowViewModel : ViewModel() {
     val isFollowerLoading : LiveData<Boolean> = _isFollowerLoading
 
     private val _followerErrorMsg = MutableLiveData<Event<String>>()
-    val followerErrorMsg : LiveData<Event<String>> = _followerErrorMsg
 
     private val _followingErrorMsg = MutableLiveData<Event<String>>()
-    val followingrErrorMsg : LiveData<Event<String>> = _followerErrorMsg
 
 
     fun getFollower(path : String){
