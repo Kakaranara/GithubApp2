@@ -22,15 +22,15 @@ class FavoriteActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(
             this,
-            FavoriteVmFactory(application)
+            FavoriteVmFactory.getInstance(application)
         )[FavoriteViewModel::class.java]
 
         observeRecyclerView()
     }
 
     private fun observeRecyclerView(){
-        viewModel.getFavoriteData().observe(this){
-            val adapter = SearchListAdapter(it)
+        viewModel.getFavoriteData().observe(this){ favData ->
+            val adapter = SearchListAdapter(favData)
             binding.rvFavorite.adapter = adapter
 
             adapter.setOnItemCallbackListener(object : SearchListAdapter.OnItemCallbackListener{

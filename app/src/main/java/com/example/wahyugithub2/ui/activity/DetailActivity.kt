@@ -28,7 +28,7 @@ class DetailActivity : AppCompatActivity() {
 
         dbViewModel = ViewModelProvider(
             this,
-            FavoriteVmFactory(application)
+            FavoriteVmFactory.getInstance(application)
         ).get(FavoriteViewModel::class.java)
 
         obj = intent.getParcelableExtra<DetailUserResponse>(EXTRAS) as DetailUserResponse
@@ -77,6 +77,7 @@ class DetailActivity : AppCompatActivity() {
                 binding.fab.setImageResource(R.drawable.ic_baseline_favorite_black)
                 binding.fab.setOnClickListener{
                     dbViewModel.deleteData(obj)
+                    finish()
                 }
             }
             dbViewModel.getFavoriteData()

@@ -50,8 +50,6 @@ class MainActivity : AppCompatActivity() {
             viewModel.searchUser(textView.text.toString())
             false
         }
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

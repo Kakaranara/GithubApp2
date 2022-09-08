@@ -44,4 +44,16 @@ class FavoriteVmFactory(private val application: Application) : ViewModelProvide
         }
         return super.create(modelClass)
     }
+
+    companion object{
+
+        @Volatile
+        var INSTANCE : FavoriteVmFactory? = null
+
+        fun getInstance(application: Application) : FavoriteVmFactory{
+            return INSTANCE ?: synchronized(this){
+                INSTANCE ?: FavoriteVmFactory(application).also { INSTANCE = it }
+            }
+        }
+    }
 }
