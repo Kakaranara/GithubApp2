@@ -11,7 +11,9 @@ import com.example.wahyugithub2.databinding.ActivityFavoriteBinding
 import com.example.wahyugithub2.datacenter.pojo.DetailUserResponse
 import com.example.wahyugithub2.datacenter.repository.FavoriteVmFactory
 import com.example.wahyugithub2.datacenter.viewmodel.FavoriteViewModel
+import com.example.wahyugithub2.invisible
 import com.example.wahyugithub2.ui.adapter.FavoriteListAdapter
+import com.example.wahyugithub2.visible
 
 class FavoriteActivity : AppCompatActivity() {
 
@@ -35,6 +37,12 @@ class FavoriteActivity : AppCompatActivity() {
 
     private fun observeRecyclerView(){
         viewModel.getFavoriteData().observe(this){ favData ->
+            if(favData == null || favData.isEmpty()){
+                binding.favoriteNoData.visible()
+            }
+            else{
+                binding.favoriteNoData.invisible()
+            }
             adapter.setListFavorites(favData)
         }
     }

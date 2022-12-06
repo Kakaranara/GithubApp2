@@ -13,7 +13,6 @@ class SettingsViewModel(private val preferences: SettingPreferences) : ViewModel
             preferences.saveThemeSettings(isDarkMode)
         }
     }
-
 }
 
 @Suppress("UNCHECKED_CAST")

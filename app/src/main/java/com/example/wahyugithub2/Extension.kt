@@ -13,4 +13,12 @@ fun View.showLoading(isLoading : Boolean){
     }
 }
 
+fun View.visible(){
+    this.visibility = View.VISIBLE
+}
+
+fun View.invisible(){
+    this.visibility = View.INVISIBLE
+}
+
 val Context.settings : DataStore<Preferences> by preferencesDataStore("settings")
